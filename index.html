@@ -348,12 +348,9 @@
 <h2 id="初识unity（2019-4-10f1c1）"><a href="#初识unity（2019-4-10f1c1）" class="headerlink" title="初识unity（2019.4.10f1c1）"></a>初识unity（2019.4.10f1c1）</h2><ul>
 <li><h3 id="游戏对象"><a href="#游戏对象" class="headerlink" title="游戏对象"></a>游戏对象</h3><ul>
 <li><p>名字：区分游戏对象的标识符</p>
-<p><code>GameObject.Find(string name) #根据名字返回游戏对象</code></p>
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GameObject.Find(string name) #根据名字返回游戏对象</span><br></pre></td></tr></table></figure></li>
 <li><p>标签：区分一类游戏对象</p>
-<p><code>GameObject.FindGameObjectWithTag(string tag) #根据标签返回游戏对象</code> </p>
-<p><code>GameObject.FindGameObjectsWithTag(string tag) #根据标签返回游戏对象数组</code></p>
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GameObject.FindGameObjectWithTag(string tag) #根据标签返回游戏对象</span><br><span class="line"></span><br><span class="line">GameObject.FindGameObjectsWithTag(string tag) #根据标签返回游戏对象数组</span><br></pre></td></tr></table></figure></li>
 <li><p>图层：将一组行为类似的游戏对象放在一起，按照某种方式处理</p>
 <p>图层常见用法</p>
 <ol>
@@ -415,18 +412,10 @@
 <li><p>碰撞器属性“是触发器”打开后碰撞器就变为触发器。如果既要检测到物体的接触又不想让碰撞检测影响物体移动，或者要检测一个物体是否经过空间中的某个区域，这时就可以用到触发器。</p>
 </li>
 <li><p>碰撞信息检测：</p>
-<p><code>MonoBehaviour.OnCollisionEnter(Collision collision) #进入碰撞器执行函数</code></p>
-<p><code>MonoBehaviour.OnCollisionExit(Collision collision) #退出碰撞器执行函数</code></p>
-<p><code>MonoBehaviour.OnCollisionStay(Collision collision) #停留碰撞器执行函数</code></p>
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MonoBehaviour.OnCollisionEnter(Collision collision) #进入碰撞器执行函数</span><br><span class="line">    </span><br><span class="line">MonoBehaviour.OnCollisionExit(Collision collision) #退出碰撞器执行函数</span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnCollisionStay(Collision collision) #停留碰撞器执行函数</span><br></pre></td></tr></table></figure></li>
 <li><p>触发信息检测：</p>
-<p> <code>MonoBehaviour.OnTriggerEnter(Collider collider) #进入触发器执行函数 </code></p>
-<p><code>MonoBehaviour.OnTriggerExit(Collider collider) #退出触发器执行函数</code></p>
-<p><code>MonoBehaviour.OnTriggerStay(Collider collider) #停留触发器执行函数</code></p>
-</li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MonoBehaviour.OnTriggerEnter(Collider collider) #进入触发器执行函数</span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnTriggerExit(Collider collider) #退出触发器执行函数</span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnTriggerStay(Collider collider) #停留触发器执行函数</span><br></pre></td></tr></table></figure></li>
 </ul>
-</li>
-<li><p>暂略</p>
 </li>
 </ul>
 </li>
@@ -464,7 +453,7 @@
 <p>游戏运行时每刷新一帧之前调用一次Update函数，一般人物的移动是在此函数中实现，所以有时游戏卡住不能移动的原因是帧率太低。</p>
 </li>
 <li><p>FixedUpdate</p>
-<p>FixedUpdate是每隔一定周期调用一次，看的是真实的时间间隔，和游戏帧率没有关系，多用于物理引擎的计算。</p>
+<p>FixedUpdate是每隔一定周期调用一次，调用的是真实的时间间隔，和游戏帧率没有关系，多用于物理引擎的计算。</p>
 </li>
 </ul>
 </li>
