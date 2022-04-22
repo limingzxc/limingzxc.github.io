@@ -6,7 +6,7 @@
   <link href="https://limingzxc.github.io/atom.xml" rel="self"/>
   
   <link href="https://limingzxc.github.io/"/>
-  <updated>2021-11-19T09:24:57.232Z</updated>
+  <updated>2022-04-22T08:37:15.552Z</updated>
   <id>https://limingzxc.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的世界mod开发的一些心得</title>
+    <link href="https://limingzxc.github.io/2022/04/21/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8Cmod%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/"/>
+    <id>https://limingzxc.github.io/2022/04/21/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8Cmod%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/</id>
+    <published>2022-04-21T01:01:27.000Z</published>
+    <updated>2022-04-22T08:37:15.552Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h1><p>快速构建forge开发环境有两大办法：</p><p>​    下载官方构建包自行构建（需要有良好的网络环境，最好使用梯子加速）</p><p>​    下载网友分享的离线包，如[<a href="https://www.mcbbs.net/thread-896542-1-1.html">1.18.1-1.7.10] Minecraft模组开发离线包 [Forge|Fabric] - 编程开发 - Minecraft(我的世界)中文论坛 - (mcbbs.net)</a></p><h1 id="2-mappings映射表"><a href="#2-mappings映射表" class="headerlink" title="2.mappings映射表"></a>2.mappings映射表</h1><p>因为不同映射表里的函数名和类名是不一样的，所以我们可以查找Mcp名对应的Srg名，再用另一套映射表查Srg名对应的Mcp名，实现不同映射表之间的转化。同一游戏版本里的Srg名是相同的。不懂Srg名和Mcp名的可以看Boson大佬这篇文章<a href="https://boson.v2mcdev.com/introducation/forge.html">Forge是什么 - Boson 1.16 Modding Tutorial (v2mcdev.com)</a></p><p>映射表Mcp名对应Srg名的文件是forge-1.16.5-36.2.20-mdk\build\createMcpToSrg\output.tsrg</p><p>如果目录为空，可以运行Gradle里的Tasks/other/createMcpToSrg任务生成文件</p><p>更改映射表需要在build.gradle文件里更改</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;1-环境配置&quot;&gt;&lt;a href=&quot;#1-环境配置&quot; class=&quot;headerlink&quot; title=&quot;1.环境配置&quot;&gt;&lt;/a&gt;1.环境配置&lt;/h1&gt;&lt;p&gt;快速构建forge开发环境有两大办法：&lt;/p&gt;
+&lt;p&gt;​    下载官方构建包自行构建（需要有良好的网络环境</summary>
+      
+    
+    
+    
+    
+    <category term="我的世界" scheme="https://limingzxc.github.io/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>初学unity2D的感受</title>
