@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>初学unity2D的感受 | 黎明</title><script src="//unpkg.com/valine/dist/Valine.min.js"></script><link rel="stylesheet" href="/limingzxc.github.io/css/arknights.css"><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/limingzxc.github.io/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/limingzxc.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/limingzxc.github.io/atom.xml" title="黎明" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><header><nav><a href="/limingzxc.github.io/">Home</a><a href="/limingzxc.github.io/archives/">Archives</a></nav></header><main><article><div id="post-bg"><div id="post-title"><h1>初学unity2D的感受</h1><hr></div><div id="post-content"><h1 id="Unity2D"><a href="#Unity2D" class="headerlink" title="Unity2D"></a><certer>Unity2D</center></h1><h2 id="关于安装"><a href="#关于安装" class="headerlink" title="关于安装"></a>关于安装</h2><p>安装unity推荐使用unity hub，它可以在安装时选用任意组件搭配，比如是否安装Visual Studio 2019，各平台打包工具，中文语言包等等。</p>
+<p>如果你直接安装了unity，也可以添加到unity hub里管理。</p>
+<p>如果你之前安装的unity没有安卓打包组件，而你现在想再添加的话，可以去unity官网下载对应版本组件，再用android studio下载jdk，sdk，ndk并配置到unity。</p>
+<h2 id="初识unity（2019-4-10f1c1）"><a href="#初识unity（2019-4-10f1c1）" class="headerlink" title="初识unity（2019.4.10f1c1）"></a>初识unity（2019.4.10f1c1）</h2><ul>
+<li><h3 id="游戏对象"><a href="#游戏对象" class="headerlink" title="游戏对象"></a>游戏对象</h3><ul>
+<li><p>名字：区分游戏对象的标识符</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GameObject.Find(<span class="built_in">string</span> name) <span class="meta">#根据名字返回游戏对象</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>标签：区分一类游戏对象</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GameObject.FindGameObjectWithTag(<span class="built_in">string</span> tag) <span class="meta">#根据标签返回游戏对象</span></span><br><span class="line"></span><br><span class="line">GameObject.FindGameObjectsWithTag(<span class="built_in">string</span> tag) <span class="meta">#根据标签返回游戏对象数组</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>图层：将一组行为类似的游戏对象放在一起，按照某种方式处理</p>
+<p>图层常见用法</p>
+<ol>
+<li>图层第一种常见的用法是在Scene视图中隐藏它们。</li>
+<li>图层的第二个作用是排除不被灯光照亮的对象。</li>
+<li>图层的第三个作用是告诉Unity哪些对象之间可以进行物理交互。</li>
+<li>图层的最后一个功能是可以使用它们定义摄像机可以看到什么以及不能看到什么。</li>
+</ol>
+</li>
+<li><p>常用组件</p>
+<ul>
+<li><p>Transform</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">X</th>
+<th align="center">Y</th>
+<th align="center">Z</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">位置</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">旋转</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">缩放</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>此组件可以实现游戏对象的位置、旋转、缩放调整</p>
+<ol>
+<li><p>位置在每帧调整可以实现人物的移动，此移动一般适用于游戏对象无刚体组件。</p>
+</li>
+<li><p>旋转可以调整游戏对象的朝向，并且游戏对象上的碰撞器也会跟随人物旋转。</p>
+</li>
+<li><p>缩放可以调整游戏对象的大小，可以由某些条件触发，一般缩放要等比例，否则游戏对象上的碰撞器会变形，缩放的应用可以参考超级玛丽里面的吃蘑菇。</p>
+</li>
+</ol>
+</li>
+<li><p>碰撞器</p>
+<ul>
+<li><p>碰撞器有方形，圆形，胶囊等多种形状。选择碰撞器一般看具体游戏对象的形状，如果游戏对象选择了圆形或胶囊碰撞器，而且游戏对象移动的代码逻辑是对其挂载的刚体施加力，那么为了防止游戏对象滚动，我们可以在其刚体组件上设置冻结Z轴旋转。</p>
+</li>
+<li><p>碰撞器可以设置物理材质，从而设定碰撞器的弹力和摩擦力。基于Transform的移动不会触发摩擦力。</p>
+</li>
+<li><p>碰撞器大小会随游戏对象大小等比例变化。</p>
+</li>
+<li><p>碰撞器属性“是触发器”打开后碰撞器就变为触发器。如果既要检测到物体的接触又不想让碰撞检测影响物体移动，或者要检测一个物体是否经过空间中的某个区域，这时就可以用到触发器。</p>
+</li>
+<li><p>碰撞信息检测：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MonoBehaviour.OnCollisionEnter(Collision collision) <span class="meta">#进入碰撞器执行函数</span></span><br><span class="line">    </span><br><span class="line">MonoBehaviour.OnCollisionExit(Collision collision) <span class="meta">#退出碰撞器执行函数</span></span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnCollisionStay(Collision collision) <span class="meta">#停留碰撞器执行函数</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>触发信息检测：</p>
+ <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MonoBehaviour.OnTriggerEnter(Collider collider) <span class="meta">#进入触发器执行函数</span></span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnTriggerExit(Collider collider) <span class="meta">#退出触发器执行函数</span></span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnTriggerStay(Collider collider) <span class="meta">#停留触发器执行函数</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="动画器与动画"><a href="#动画器与动画" class="headerlink" title="动画器与动画"></a>动画器与动画</h3><ul>
+<li><p>创建动画</p>
+<p>将多个贴图选中移动到场景中可创建动画文件，或者选中游戏对象，在动画窗口中点击创建动画。一个游戏对象可以有多个动画。</p>
+</li>
+<li><p>动画</p>
+<ul>
+<li><p>关键帧</p>
+<p>添加游戏对象不同贴图、位置、大小，或者改变组件属性和状态都可添加关键帧。比如人物静止和移动时的动画就是多张贴图循环播放制作的。</p>
+</li>
+<li><p>事件帧</p>
+<p>添加事件帧可以某一时刻调用当前游戏对象所挂脚本的函数。一般用于实现特定功能的动画中。</p>
+</li>
+</ul>
+</li>
+<li><p>动画器</p>
+<ul>
+<li>动画器用于不同动画之间的转换，一般是设置布尔变量来改变游戏对象所处状态。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><ul>
+<li><p>类名</p>
+<p>一个脚本可以绑定多个游戏对象，脚本名必须和脚本中的类名一致，并且是唯一的。</p>
+</li>
+<li><p>Start</p>
+<p>Start函数是游戏初始化时的函数，只执行一次，一般用于给变量赋予一个初始值</p>
+</li>
+<li><p>Update</p>
+<p>游戏运行时每刷新一帧之前调用一次Update函数，一般人物的移动是在此函数中实现，所以有时游戏卡住不能移动的原因是帧率太低。</p>
+</li>
+<li><p>FixedUpdate</p>
+<p>FixedUpdate是每隔一定周期调用一次，调用的是真实的时间间隔，和游戏帧率没有关系，多用于物理引擎的计算。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a><certer>感受</center></h1><p><strong>Unity引擎使得游戏制作变得简单了许多，里面的动画机、物理引擎等等功能使游戏开发的难度大大减少，但想要做出好游戏不仅要靠过硬的技术，还要有绝妙的创意和精彩的游戏内容。</strong></p>
+<div id="paginator"></div></div><div id="post-footer"><hr><a href="/limingzxc.github.io/2022/04/21/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8Cmod%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/">← Prev 我的世界mod开发的一些心得</a><span style="color: #fe2"> | </span><a href="/limingzxc.github.io/2021/10/24/%E5%BD%B1%E8%A7%86%E6%8E%A8%E8%8D%90/">影视推荐 Next →</a><hr></div><div id="bottom-btn"><a id="to-index" href="#post-index" title="index">≡</a><a id="to-top" href="#post-title" title="to top">∧</a></div></div></article><aside><div id="about"><a href="/limingzxc.github.io/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/"> Dr.黎明的曙光</a></h1><section id="total"><a id="total-archives" href="/limingzxc.github.io/archives"><span class="total-title">Archives Total:</span><span class="total-number">5</span></a><div id="total-tags"><span class="total-title">Tags:</span><span class="total-number">4</span></div><div id="total-categories"><span class="total-title">Categories:</span><span class="total-number">0</span></div></section></div><div id="aside-block"><h1>INDEX</h1><div id="post-index"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Unity2D"><span class="toc-number">1.</span> <span class="toc-text">Unity2D</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">关于安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E8%AF%86unity%EF%BC%882019-4-10f1c1%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">初识unity（2019.4.10f1c1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.1.</span> <span class="toc-text">游戏对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E5%99%A8%E4%B8%8E%E5%8A%A8%E7%94%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">动画器与动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC"><span class="toc-number">1.2.3.</span> <span class="toc-text">脚本</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E5%8F%97"><span class="toc-number">2.</span> <span class="toc-text">感受</span></a></li></ol></div></div><footer><wbr><nobr>published with&nbsp;<a target="_blank" rel="noopener" href="http://hexo.io">Hexo&nbsp;</a></nobr><wbr><nobr>Theme&nbsp;<a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight&nbsp;</a></nobr><wbr><nobr>by&nbsp;<a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/limingzxc.github.io/js/arknights.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script></body></html>

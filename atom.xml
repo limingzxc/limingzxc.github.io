@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>黎明</title>
+  
+  
+  <link href="https://limingzxc.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://limingzxc.github.io/"/>
+  <updated>2022-04-22T08:37:15.552Z</updated>
+  <id>https://limingzxc.github.io/</id>
+  
+  <author>
+    <name>黎明的曙光</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的世界mod开发的一些心得</title>
+    <link href="https://limingzxc.github.io/2022/04/21/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8Cmod%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/"/>
+    <id>https://limingzxc.github.io/2022/04/21/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8Cmod%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/</id>
+    <published>2022-04-21T01:01:27.000Z</published>
+    <updated>2022-04-22T08:37:15.552Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h1><p>快速构建forge开发环境有两大办法：</p><p>​下载官方构建包自行构建（需要有良好的网络环境，最好使用梯子加速）</p><p>​下载网友分享的离线包，如[<a href="https://www.mcbbs.net/thread-896542-1-1.html">1.18.1-1.7.10] Minecraft模组开发离线包 [Forge|Fabric] - 编程开发 - Minecraft(我的世界)中文论坛 - (mcbbs.net)</a></p><h1 id="2-mappings映射表"><a href="#2-mappings映射表" class="headerlink" title="2.mappings映射表"></a>2.mappings映射表</h1><p>因为不同映射表里的函数名和类名是不一样的，所以我们可以查找Mcp名对应的Srg名，再用另一套映射表查Srg名对应的Mcp名，实现不同映射表之间的转化。同一游戏版本里的Srg名是相同的。不懂Srg名和Mcp名的可以看Boson大佬这篇文章<a href="https://boson.v2mcdev.com/introducation/forge.html">Forge是什么 - Boson 1.16 Modding Tutorial (v2mcdev.com)</a></p><p>映射表Mcp名对应Srg名的文件是forge-1.16.5-36.2.20-mdk\build\createMcpToSrg\output.tsrg</p><p>如果目录为空，可以运行Gradle里的Tasks&#x2F;other&#x2F;createMcpToSrg任务生成文件</p><p>更改映射表需要在build.gradle文件里更改</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;1-环境配置&quot;&gt;&lt;a href=&quot;#1-环境配置&quot; class=&quot;headerlink&quot; title=&quot;1.环境配置&quot;&gt;&lt;/a&gt;1.环境配置&lt;/h1&gt;&lt;p&gt;快速构建forge开发环境有两大办法：&lt;/p&gt;
+&lt;p&gt;​	下载官方构建包自行构建（需要有良好的网络环境，最好</summary>
+      
+    
+    
+    
+    
+    <category term="我的世界" scheme="https://limingzxc.github.io/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初学unity2D的感受</title>
+    <link href="https://limingzxc.github.io/2021/10/26/%E5%88%9D%E5%AD%A6unity2D%E7%9A%84%E6%84%9F%E5%8F%97/"/>
+    <id>https://limingzxc.github.io/2021/10/26/%E5%88%9D%E5%AD%A6unity2D%E7%9A%84%E6%84%9F%E5%8F%97/</id>
+    <published>2021-10-26T04:03:23.000Z</published>
+    <updated>2021-11-19T09:24:57.232Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Unity2D"><a href="#Unity2D" class="headerlink" title="Unity2D"></a><certer>Unity2D</center></h1><h2 id="关于安装"><a href="#关于安装" class="headerlink" title="关于安装"></a>关于安装</h2><p>安装unity推荐使用unity hub，它可以在安装时选用任意组件搭配，比如是否安装Visual Studio 2019，各平台打包工具，中文语言包等等。</p><p>如果你直接安装了unity，也可以添加到unity hub里管理。</p><p>如果你之前安装的unity没有安卓打包组件，而你现在想再添加的话，可以去unity官网下载对应版本组件，再用android studio下载jdk，sdk，ndk并配置到unity。</p><h2 id="初识unity（2019-4-10f1c1）"><a href="#初识unity（2019-4-10f1c1）" class="headerlink" title="初识unity（2019.4.10f1c1）"></a>初识unity（2019.4.10f1c1）</h2><ul><li><h3 id="游戏对象"><a href="#游戏对象" class="headerlink" title="游戏对象"></a>游戏对象</h3><ul><li><p>名字：区分游戏对象的标识符</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GameObject.Find(<span class="built_in">string</span> name) <span class="meta">#根据名字返回游戏对象</span></span><br></pre></td></tr></table></figure></li><li><p>标签：区分一类游戏对象</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GameObject.FindGameObjectWithTag(<span class="built_in">string</span> tag) <span class="meta">#根据标签返回游戏对象</span></span><br><span class="line"></span><br><span class="line">GameObject.FindGameObjectsWithTag(<span class="built_in">string</span> tag) <span class="meta">#根据标签返回游戏对象数组</span></span><br></pre></td></tr></table></figure></li><li><p>图层：将一组行为类似的游戏对象放在一起，按照某种方式处理</p><p>图层常见用法</p><ol><li>图层第一种常见的用法是在Scene视图中隐藏它们。</li><li>图层的第二个作用是排除不被灯光照亮的对象。</li><li>图层的第三个作用是告诉Unity哪些对象之间可以进行物理交互。</li><li>图层的最后一个功能是可以使用它们定义摄像机可以看到什么以及不能看到什么。</li></ol></li><li><p>常用组件</p><ul><li><p>Transform</p><table><thead><tr><th align="center"></th><th align="center">X</th><th align="center">Y</th><th align="center">Z</th></tr></thead><tbody><tr><td align="center">位置</td><td align="center"></td><td align="center"></td><td align="center"></td></tr><tr><td align="center">旋转</td><td align="center"></td><td align="center"></td><td align="center"></td></tr><tr><td align="center">缩放</td><td align="center"></td><td align="center"></td><td align="center"></td></tr></tbody></table><p>此组件可以实现游戏对象的位置、旋转、缩放调整</p><ol><li><p>位置在每帧调整可以实现人物的移动，此移动一般适用于游戏对象无刚体组件。</p></li><li><p>旋转可以调整游戏对象的朝向，并且游戏对象上的碰撞器也会跟随人物旋转。</p></li><li><p>缩放可以调整游戏对象的大小，可以由某些条件触发，一般缩放要等比例，否则游戏对象上的碰撞器会变形，缩放的应用可以参考超级玛丽里面的吃蘑菇。</p></li></ol></li><li><p>碰撞器</p><ul><li><p>碰撞器有方形，圆形，胶囊等多种形状。选择碰撞器一般看具体游戏对象的形状，如果游戏对象选择了圆形或胶囊碰撞器，而且游戏对象移动的代码逻辑是对其挂载的刚体施加力，那么为了防止游戏对象滚动，我们可以在其刚体组件上设置冻结Z轴旋转。</p></li><li><p>碰撞器可以设置物理材质，从而设定碰撞器的弹力和摩擦力。基于Transform的移动不会触发摩擦力。</p></li><li><p>碰撞器大小会随游戏对象大小等比例变化。</p></li><li><p>碰撞器属性“是触发器”打开后碰撞器就变为触发器。如果既要检测到物体的接触又不想让碰撞检测影响物体移动，或者要检测一个物体是否经过空间中的某个区域，这时就可以用到触发器。</p></li><li><p>碰撞信息检测：</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MonoBehaviour.OnCollisionEnter(Collision collision) <span class="meta">#进入碰撞器执行函数</span></span><br><span class="line">    </span><br><span class="line">MonoBehaviour.OnCollisionExit(Collision collision) <span class="meta">#退出碰撞器执行函数</span></span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnCollisionStay(Collision collision) <span class="meta">#停留碰撞器执行函数</span></span><br></pre></td></tr></table></figure></li><li><p>触发信息检测：</p> <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MonoBehaviour.OnTriggerEnter(Collider collider) <span class="meta">#进入触发器执行函数</span></span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnTriggerExit(Collider collider) <span class="meta">#退出触发器执行函数</span></span><br><span class="line"></span><br><span class="line">MonoBehaviour.OnTriggerStay(Collider collider) <span class="meta">#停留触发器执行函数</span></span><br></pre></td></tr></table></figure></li></ul></li></ul></li></ul></li><li><h3 id="动画器与动画"><a href="#动画器与动画" class="headerlink" title="动画器与动画"></a>动画器与动画</h3><ul><li><p>创建动画</p><p>将多个贴图选中移动到场景中可创建动画文件，或者选中游戏对象，在动画窗口中点击创建动画。一个游戏对象可以有多个动画。</p></li><li><p>动画</p><ul><li><p>关键帧</p><p>添加游戏对象不同贴图、位置、大小，或者改变组件属性和状态都可添加关键帧。比如人物静止和移动时的动画就是多张贴图循环播放制作的。</p></li><li><p>事件帧</p><p>添加事件帧可以某一时刻调用当前游戏对象所挂脚本的函数。一般用于实现特定功能的动画中。</p></li></ul></li><li><p>动画器</p><ul><li>动画器用于不同动画之间的转换，一般是设置布尔变量来改变游戏对象所处状态。</li></ul></li></ul></li><li><h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><ul><li><p>类名</p><p>一个脚本可以绑定多个游戏对象，脚本名必须和脚本中的类名一致，并且是唯一的。</p></li><li><p>Start</p><p>Start函数是游戏初始化时的函数，只执行一次，一般用于给变量赋予一个初始值</p></li><li><p>Update</p><p>游戏运行时每刷新一帧之前调用一次Update函数，一般人物的移动是在此函数中实现，所以有时游戏卡住不能移动的原因是帧率太低。</p></li><li><p>FixedUpdate</p><p>FixedUpdate是每隔一定周期调用一次，调用的是真实的时间间隔，和游戏帧率没有关系，多用于物理引擎的计算。</p></li></ul></li></ul><h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a><certer>感受</center></h1><p><strong>Unity引擎使得游戏制作变得简单了许多，里面的动画机、物理引擎等等功能使游戏开发的难度大大减少，但想要做出好游戏不仅要靠过硬的技术，还要有绝妙的创意和精彩的游戏内容。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Unity2D&quot;&gt;&lt;a href=&quot;#Unity2D&quot; class=&quot;headerlink&quot; title=&quot;Unity2D&quot;&gt;&lt;/a&gt;&lt;certer&gt;Unity2D&lt;/center&gt;&lt;/h1&gt;&lt;h2 id=&quot;关于安装&quot;&gt;&lt;a href=&quot;#关于安装&quot; class=</summary>
+      
+    
+    
+    
+    
+    <category term="unity" scheme="https://limingzxc.github.io/tags/unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>影视推荐</title>
+    <link href="https://limingzxc.github.io/2021/10/24/%E5%BD%B1%E8%A7%86%E6%8E%A8%E8%8D%90/"/>
+    <id>https://limingzxc.github.io/2021/10/24/%E5%BD%B1%E8%A7%86%E6%8E%A8%E8%8D%90/</id>
+    <published>2021-10-24T09:29:28.000Z</published>
+    <updated>2021-10-24T10:55:49.626Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="影视推荐"><a href="#影视推荐" class="headerlink" title="影视推荐"></a><center>影视推荐</center></h1><h2 id="爱，死亡与机器人第一季S1E14《齐马的蓝》-Zima-Blue"><a href="#爱，死亡与机器人第一季S1E14《齐马的蓝》-Zima-Blue" class="headerlink" title="爱，死亡与机器人第一季S1E14《齐马的蓝》(Zima.Blue)"></a>爱，死亡与机器人第一季S1E14《齐马的蓝》(Zima.Blue)</h2><p>推荐指数：5颗星<br>推荐理由：富有哲理，让人深思人生和宇宙的意义<br>时长：约10分钟<br>摘抄台词</p><ul><li><p>我无法决定蓝色是更接近天空还是更接近大海，其实两者都不是，齐马·蓝，这是个精确的颜色。</p></li><li><p>那台小机器不停地工作，擦洗着水池的陶瓷面。</p></li><li><p>但你是一个有机器零件的人，不是一个认为自己是人的机器。</p></li><li><p>这就是我所知道的，我所需要知道的。</p></li></ul><hr><h2 id="典籍里的中国"><a href="#典籍里的中国" class="headerlink" title="典籍里的中国"></a>典籍里的中国</h2><p>推荐指数：4颗星<br>推荐理由：用舞台剧走进历史，回味名著<br>时长：暂有11期，一期约1个半小时<br>摘抄台词（前两期）</p><ul><li><p>禹敷土，随山刊木，奠高山大川。——《尚书·禹贡》</p></li><li><p>称尔戈，比尔干，立尔矛，予其誓。——《尚书·牧誓》 </p></li><li><p>生人不能久生而五谷生之，五谷不能自生而生人生之。——《天工开物·乃粒》</p></li><li><p>天覆地载，物数号万，而事亦因之。——《天工开物·序》</p></li></ul> <hr><h2 id="庆余年"><a href="#庆余年" class="headerlink" title="庆余年"></a>庆余年</h2><p>推荐指数：3颗星<br>推荐理由：难得的国产佳剧，空闲时间可以看看<br>时长：46集<br>摘抄台词（略）</p><hr><h2 id="神探夏洛克"><a href="#神探夏洛克" class="headerlink" title="神探夏洛克"></a>神探夏洛克</h2><p>推荐指数：5颗星<br>推荐理由：悬疑推理神作<br>时长：4集13集，一集约有1个半小时<br>摘抄台词</p><ul><li><p>you lower the IQ of the whole street.整条街的智商都被你拉低了</p></li><li><p>whatever remains,however improbable,must be true.剩下的不管多么难以置信，一定就是真相。</p></li><li><p>Bravery is by far the kindest word for stupidity.勇敢是愚蠢最好听的代言词。</p></li><li><p>Every fairy tale needs a good old-fashioned villain.每个童话都需要一个经典大反派。</p></li><li><p>I don’t have friend.I’v just got one.我没有朋友，我身边只有你。</p></li><li><p>Brainy is the new sexy.智慧是性感的新潮流。</p></li><li><p>Nothing made me.I made me.没什么塑造了我，我塑造了自己。</p></li></ul><hr><p>。。。更新中</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;影视推荐&quot;&gt;&lt;a href=&quot;#影视推荐&quot; class=&quot;headerlink&quot; title=&quot;影视推荐&quot;&gt;&lt;/a&gt;&lt;center&gt;影视推荐&lt;/center&gt;&lt;/h1&gt;&lt;h2 id=&quot;爱，死亡与机器人第一季S1E14《齐马的蓝》-Zima-Blue&quot;&gt;&lt;a hre</summary>
+      
+    
+    
+    
+    
+    <category term="影视" scheme="https://limingzxc.github.io/tags/%E5%BD%B1%E8%A7%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows-cmd-常用命令</title>
+    <link href="https://limingzxc.github.io/2021/10/13/windows-cmd-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://limingzxc.github.io/2021/10/13/windows-cmd-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2021-10-13T12:52:18.000Z</published>
+    <updated>2023-03-12T07:01:33.688Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1 id="cmd各种快捷打开方法"><a href="#cmd各种快捷打开方法" class="headerlink" title="cmd各种快捷打开方法"></a>cmd各种快捷打开方法</h1><br><ol><li><p>Win + R 输入cmd回车</p><br></li><li><p>同时按下win+x，或者“开始”菜单上右键，在弹出菜单上选择“命令行提示符”或“Windows PowerShell”</p><br></li><li><p>新建文本文档，打开后输入“cmd”，保存退出然后修改扩展名为“*.bat”类型或者为“*.cmd”类型，然后双击打开此文件，就会打开cmd</p><br></li><li><p>在文件资源管理器中打开cmd.exe，路径为“C:\Windows\System32\cmd.exe”</p><br></li><li><p>在上一步的找到源程序cmd.exe后，还可以把程序右击，然后点击，创建快捷方式到桌面</p><br></li><li><p>在开始菜单栏里找到Windows系统文件夹里的命令提示符打开</p><br></li><li><p>打开任意一个文件夹，把上方的导航栏里面的文字改成“cmd”，然后回车即可</p><br></li><li><p>在任意一个文件夹（桌面也可以），摁住Shirt键然后右键鼠标，在对话框内点击【在此处打开命令窗口】，即可，目标直接为了当前文件夹，不是C:&#x2F;Windows&#x2F;system32了（除非你在system32文件夹下打开的命令提示符）（少了cd的过程）</p><br></li><li><p>如果你经常用cmd的话，可以在左下角搜索里的热门应用里找到它</p><br></li></ol><h1 id="cmd常用命令"><a href="#cmd常用命令" class="headerlink" title="cmd常用命令"></a>cmd常用命令</h1><br><ul><li><p>cd 路径 –更改 cmd 的运行路径（如果要切换盘符，直接输入盘符名称即可，”cd 盘符”命令是无效的)</p></li><li><p>dir 路径 –显示目录中的文件和子目录（如果不输入路径，默认是当前运行路径）</p></li><li><p>md(mkdir) –创建目录</p></li><li><p>rd(rmdir) –删除目录</p></li><li><p>del 路径 –删除路径下的文件或文件夹</p></li><li><p>ren(rename) –重命名文件</p></li><li><p>tree –以树形图方式显示驱动程序或路径的目录结构</p><br></li><li><p>ipconfig –查看网络配置</p></li><li><p>netstat –查看网络状态</p></li><li><p>ping –检查与目标主机的连通性</p></li><li><p>tracert –查看与目标主机的路由节点</p></li><li><p>route print –打印与目标主机的路由</p></li><li><p>arp –查看本机的ARP缓存表</p></li><li><p>nslookup –查看DNS域名解析记录</p></li><li><p>net –网络管理</p><br></li><li><p>cls – 清除屏幕（清除 cmd 之前输入和输出的命令）</p></li><li><p>help –提供 Windows 命令的提示信息</p></li><li><p>ver –显示 Windows 的版本</p><br></li></ul><h1 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h1><br><ul><li>在cmd中按下’上’,’下’键可以调出并浏览之前输入的命令（前提是你没有重启cmd）</li><li>在 cmd 里面输入: 命令 &#x2F;? 来查看命令的使用方法及参数<br></li></ul><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+
+&lt;h1 id=&quot;cmd各种快捷打开方法&quot;&gt;&lt;a href=&quot;#cmd各种快捷打开方法&quot; class=&quot;headerlink&quot; title=&quot;cmd各种快捷打开方法&quot;&gt;&lt;/a&gt;cmd各种快捷打开方法&lt;/h1&gt;&lt;br&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Win + R 输入cmd</summary>
+      
+    
+    
+    
+    
+    <category term="计算机" scheme="https://limingzxc.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>主页</title>
+    <link href="https://limingzxc.github.io/2021/10/05/%E4%B8%BB%E9%A1%B5/"/>
+    <id>https://limingzxc.github.io/2021/10/05/%E4%B8%BB%E9%A1%B5/</id>
+    <published>2021-10-05T08:34:48.000Z</published>
+    <updated>2023-03-12T07:00:31.804Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1 id="诗"><a href="#诗" class="headerlink" title="诗"></a><center>诗</center></h1><br><center>青青子衿，悠悠我心，但为君故，沉吟至今. 呦呦鹿鸣，食野之萍，我有嘉宾，鼓瑟吹笙</center><br><h1 id="语"><a href="#语" class="headerlink" title="语"></a><center>语</center></h1><br><center>to be or not to be, this is the question. 生存还是死亡，这是个问题</center><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+
+&lt;h1 id=&quot;诗&quot;&gt;&lt;a href=&quot;#诗&quot; class=&quot;headerlink&quot; title=&quot;诗&quot;&gt;&lt;/a&gt;&lt;center&gt;诗&lt;/center&gt;&lt;/h1&gt;&lt;br&gt;
+
+&lt;center&gt;青青子衿，悠悠我心，但为君故，沉吟至今. 呦呦鹿鸣，食野之萍，我有嘉宾，鼓瑟吹笙</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
